@@ -19,14 +19,14 @@ public class LoginMonitor {
 
 	 private Logger logger = Logger.getLogger(getClass().getName());
 	 @Before("execution(public * login(*))")
-	    public void callGettersBefore(JoinPoint joinPoint) {
+	    public void callBeforeLogin(JoinPoint joinPoint) {
 	        logger.info("before Login======================================================");
 	        logger.info("Method Invoked: " + joinPoint.getSignature().getName());
 	        logger.info("Value Passed: " + joinPoint.getArgs()[0]);
 	    }
 
 	 @After("execution(public * login(*))")
-	 public void callGettersAfter(JoinPoint joinPoint)  {
+	 public void callAfterLogin(JoinPoint joinPoint)  {
 		 logger.info("After Login");
 	        logger.info("Method Invoked: " + joinPoint.getSignature().getName());
 	        logger.info("Value Passed: " + joinPoint.getArgs()[0]);
